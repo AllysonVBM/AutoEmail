@@ -2,18 +2,19 @@ from imap_tools import *
 import os
 
 
+
 #caminho da pasta para onde os curriculos serão salvos
 way = ("C:/Users/allys/OneDrive/Área de Trabalho/Curriculos")
 
 #credenciais do email
-usuario =  #SEU EMAIL VAI AQUI
-senha =    # A SENHA É A KEY DE ACESSO QUE O SEU EMAIL VAI FORNECER
+usuario =     #SEU EMAIL VAI AQUI
+senha =       #A SENHA É A KEY DE ACESSO QUE O SEU EMAIL VAI FORNECER
 
 meu_email = MailBox("imap.gmail.com").login(usuario,senha)
 
 
-lista_emails = meu_email.fetch(AND(subject="Curriculo")) #S
-anexos_emails = meu_email.fetch(AND(body="Curriculo"))
+lista_emails = meu_email.fetch(AND(subject="Curriculo")) #PRIMEIRO FILTRO DO HEADER DO EMAIL
+anexos_emails = meu_email.fetch(AND(body="Curriculo")) #SEGUNDO FILTRO DO BODY
 
 def download_attachments(): 
     if len(email.attachments) > 0:
